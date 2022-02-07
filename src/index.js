@@ -15,7 +15,7 @@ export default function App() {
       <div className="container">
         <Search />
         <Forecast
-          city="LONDON"
+          city="london"
           temperature={9}
           humidity={73}
           windSpeed={0.45}
