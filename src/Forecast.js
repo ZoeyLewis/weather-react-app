@@ -22,7 +22,7 @@ export default function Forecast(props) {
       <div className="Forecast">
         <div className="row">
           <div className="ps-0 col-2" />
-          <h1 className="cityName col-4">{props.city}</h1>
+          <h1 className="cityName col-4 text-uppercase">{props.city}</h1>
           <div className="currentWeather col-6">
             <div id="updated-date">Last updated:</div>
             <div id="today-date">Saturday January 8 2022 11:28</div>
@@ -35,7 +35,7 @@ export default function Forecast(props) {
                 id="today-weather-emoji"
               />
             </div>
-            <div id="today-temp-tag">{weather.description}</div>
+            <div id="today-temp-tag" className="text-capitalize">{weather.description}</div>
             <div className="humidity">Humidity: {weather.humidity}%</div>
             <div className="windSpeed">Wind: {weather.windSpeed}m/h</div>
           </div>
