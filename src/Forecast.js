@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./style/Forecast.css";
 import axios from "axios";
+import ReactLoading from "react-loading";
 
 export default function Forecast(props) {
-  const [weather, setWeather] = useState({loaded:false});
+  const [weather, setWeather] = useState({ loaded: false });
   function handleResponse(response) {
     setWeather({
       loaded: true,
@@ -35,7 +36,9 @@ export default function Forecast(props) {
                 id="today-weather-emoji"
               />
             </div>
-            <div id="today-temp-tag" className="text-capitalize">{weather.description}</div>
+            <div id="today-temp-tag" className="text-capitalize">
+              {weather.description}
+            </div>
             <div className="humidity">Humidity: {weather.humidity}%</div>
             <div className="windSpeed">Wind: {weather.windSpeed}m/h</div>
           </div>
@@ -43,6 +46,10 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    return "loading";
+    return (
+      <div className="loadingBars">
+        <ReactLoading type="cylon" color="#006ec5" height={200} width={100} />
+      </div>
+    );
   }
 }
