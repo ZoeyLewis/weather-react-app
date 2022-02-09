@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./style/Forecast.css";
 import axios from "axios";
 import ReactLoading from "react-loading";
+import FormattedDate from "./FormattedDate";
 
 export default function Forecast(props) {
   const [weather, setWeather] = useState({ loaded: false });
   function handleResponse(response) {
     setWeather({
       loaded: true,
+      date: new Date (response.data.dt * 1000),
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
@@ -26,7 +28,7 @@ export default function Forecast(props) {
           <h1 className="cityName col-4 text-uppercase">{props.city}</h1>
           <div className="currentWeather col-6">
             <div id="updated-date">Last updated:</div>
-            <div id="today-date">Saturday January 8 2022 11:28</div>
+            <div id="today-date"><FormattedDate date={weather.date}/></div>
             <div id="today-temp">
               <span id="degrees">{weather.temperature}</span>
               <span id="celsius">°C</span>
