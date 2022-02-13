@@ -15,6 +15,7 @@ export default function Search(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       windSpeed: response.data.wind.speed,
+      city:response.data.name
     });
   }
 
@@ -64,6 +65,7 @@ setCity(event.target.value);
     </div>
   )}
   else {
+    citySearch();
     return (
       <div className="loadingBars">
         <ReactLoading type="cylon" color="#006ec5" height={200} width={100} />

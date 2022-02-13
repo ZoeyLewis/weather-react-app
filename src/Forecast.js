@@ -7,7 +7,7 @@ export default function Forecast(props) {
       <div className="Forecast">
         <div className="row">
           <div className="ps-0 col-2" />
-          <h1 className="cityName col-4 text-uppercase">{props.city}</h1>
+          <h1 className="cityName col-4 text-uppercase">{props.data.city}</h1>
           <div className="currentWeather col-6">
             <div id="updated-date">Last updated:</div>
             <div id="today-date"><FormattedDate date={props.data.date}/></div>
