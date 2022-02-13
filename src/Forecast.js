@@ -1,6 +1,7 @@
 import React from "react";
 import "./style/Forecast.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon"
 
 export default function Forecast(props) {
     return (
@@ -14,12 +15,10 @@ export default function Forecast(props) {
             <div id="today-temp">
               <span id="degrees">{props.data.temperature}</span>
               <span id="celsius">°C</span>
-              <img
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="Clear"
-                id="today-weather-emoji"
-              />
+              <WeatherIcon code={props.data.icon} alt={props.data.description}
+                id="today-weather-emoji"/>
             </div>
+            
             <div id="today-temp-tag" className="text-capitalize">
               {props.data.description}
             </div>
